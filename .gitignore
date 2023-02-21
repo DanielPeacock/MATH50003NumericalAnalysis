@@ -26,6 +26,5 @@ Manifest.toml
 *.ipynb_checkpoints
 .DS_Store
 
-.vscode/
 .metals/
-.vscode/settings.json
+.vscode/
