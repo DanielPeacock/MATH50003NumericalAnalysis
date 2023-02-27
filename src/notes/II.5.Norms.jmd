@@ -11,7 +11,7 @@ satisfy an additional multiplicative inequality.
 
 Recall the definition of a (vector-)norm:
 
-**Definition 1 (vector-norm)** A norm $\|\cdot\|$ on a vector space $V$ (e.g. $ℝ^n$ or $ℂ^n$) over a field $𝔽$ (e.g.
+**Definition 1 (vector-norm)** A norm $\|⋅\|$ on a vector space $V$ (e.g. $ℝ^n$ or $ℂ^n$) over a field $𝔽$ (e.g.
 $ℝ$ or $ℂ$)  
 is a function that satisfies the following, for $𝐱,𝐲 ∈ V$ and
 $c ∈ 𝔽$:
@@ -69,8 +69,8 @@ $$
 
  In Julia, one can use the inbuilt `norm` function to calculate norms:
  ```julia
- norm([1,-2,3]) == norm([1,-2,3], 2) == sqrt(1^2 + 2^2 + 3^2);
- norm([1,-2,3], 1) == sqrt(1 + 2 + 3);
+ norm([1,-2,3]) == norm([1,-2,3], 2) == sqrt(1^2 + 2^2 + 3^2) == sqrt(14);
+ norm([1,-2,3], 1) == 1 + 2 + 3 == 6;
  norm([1,-2,3], Inf) == 3;
  ```
 
@@ -80,7 +80,7 @@ $$
 
  **Definition 3 (Fröbenius norm)** For $A ∈ ℂ^{m × n}$ define
 $$
-\|A\|_F := \sqrt{\sum_{k=1}^m \sum_{j=1}^n A_{kj}^2}
+\|A\|_F := \sqrt{\sum_{k=1}^m \sum_{j=1}^n |a_{kj}|^2}
 $$
 
 This is available as `norm` in Julia:
@@ -132,7 +132,7 @@ $\|A\| = 0$ then $A 𝐱  = 0$ for all $𝐱 ∈ ℝ^n$.
 The property $\|A 𝐱 \|_Y ≤ \|A\|_{X → Y} \|𝐱 \|_X$ follows from the definition.
 Finally, the multiplicative inequality follows from
 $$
-\|A B\| = \sup_{𝐯 : \|𝐯\|_X=1} \|A B 𝐯 |_Z ≤ \sup_{𝐯 : \|𝐯\|_X=1} \|A\|_{Y → Z} \| B 𝐯 | = \|A \|_{Y → Z} \|B\|_{X →  Y}
+\|A B\| = \sup_{𝐯 : \|𝐯\|_X=1} \|A B 𝐯 \|_Z ≤ \sup_{𝐯 : \|𝐯\|_X=1} \|A\|_{Y → Z} \| B 𝐯 \| = \|A \|_{Y → Z} \|B\|_{X →  Y}
 $$
 
 
